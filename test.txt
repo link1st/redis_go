@@ -1,0 +1,13 @@
+127.0.0.1:6379> 
+set name 1000
+输入: set name 1000 <nil>
+单行: OK
+127.0.0.1:6379> 
+ttl name
+输入: ttl name <nil>
+数字: -1
+127.0.0.1:6379> 
+type name
+输入: type name <nil>
+单行: string
+127.0.0.1:6379> 
