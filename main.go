@@ -19,7 +19,6 @@ import (
 	"strings"
 )
 
-
 // 测试方法: 输入: set name 1000
 func main() {
 	address := "127.0.0.1:6379"
@@ -124,11 +123,9 @@ func readLine(br *bufio.Reader) (data []byte, err error) {
 			continue
 		}
 
-		if line != nil {
-			return append(line, p[:n]...), nil
-		} else {
-			return p[:n], nil
-		}
+		line = append(line, p[:]...)
+
+		return line, nil
 	}
 }
 
@@ -168,6 +165,13 @@ func parsing(br *bufio.Reader, buffer []byte) {
 
 	case '*':
 		fmt.Println("数组:", string(buffer[1:]))
+		//n, _ := strconv.Atoi(string(buffer[1:]))
+		//r := make([]interface{}, 0)
+		//for i := range r {
+		//
+		//
+		//}
+
 	default:
 		fmt.Println("返回错误:", string(buffer[1:]))
 	}
